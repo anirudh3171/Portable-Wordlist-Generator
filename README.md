@@ -15,4 +15,20 @@ We have divided our model into two parts to achieve this:
  
     • According to the user need the model decompresses a file, uses it to compare to the target, if the desired result is not found, re-compresses it, sequentially de-compresses the next file, and the cycle goes on till the desired target is achieved or wordlist ends.
     
-    
+Cloning and setting up:    
+```
+git clone https://github.com/anirudh3171/Portable-Wordlist-Generator
+```
+```
+g++ -std=c++11 -c compress.cpp -o compress.o
+```
+```
+g++  -o compress compress.o 
+```
+```
+g++ -std=c++11 -c decompress.cpp -o decompress.o
+```
+```
+g++  -o decompress decompress.o 
+```
+
