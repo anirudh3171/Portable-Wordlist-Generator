@@ -24,7 +24,6 @@ return 1;
 	}
 int main()
 {
-    printf("Alchemist's Smart BruteForcer");
     int max_limit, min_limit;
     string list,l="", resume;
 
