@@ -108,33 +108,43 @@ int main()
                     break;
                 }
             }
-            file = "7za a " + arcname + to_string(cnt) +".zip " + val ;
-            const char *command = file.c_str();
-            system(command);
-            string finalcmd = "7za a " + arcname +".zip " + arcname + to_string(cnt) + ".zip";
-            const char *archivecmd = finalcmd.c_str();
-            system(archivecmd);
-            f++;
-            cnt++;
             if(will_out)
         {
         fclose(op_file);
         }
+            file = "7za a " + arcname + to_string(cnt) +".zip " + val ;
+            const char *command = file.c_str();
+            system(command);
+             char fname1[val.length()+1];
+             strcpy(fname1, val.c_str());
+             deleteFile(fname1);
+
+
+            string finalcmd = "7za a " + arcname +".zip " + arcname + to_string(cnt) + ".zip";
+            const char *archivecmd = finalcmd.c_str();
+            system(archivecmd);
+            string fname= arcname+to_string(cnt)+".zip";
+             fname1[fname.length()+1];
+             strcpy(fname1, fname.c_str());
+             deleteFile(fname1);
+
+            f++;
+            cnt++;
         }
         cout<<total;
 
     }
-    int count=1;
-    while(count!=cnt)
-    {
-    string fname="file"+to_string(count)+".txt";
-    char fname1[fname.length()+1];
-    strcpy(fname1, fname.c_str());
-    deleteFile(fname1);
-    fname= arcname+to_string(count)+".zip";
-    fname1[fname.length()+1];
-    strcpy(fname1, fname.c_str());
-    deleteFile(fname1);
-    count++;
-    }
+//    int count=1;
+//    while(count!=cnt)
+//    {
+//    string fname="file"+to_string(count)+".txt";
+//    char fname1[fname.length()+1];
+//    strcpy(fname1, fname.c_str());
+//    deleteFile(fname1);
+//    fname= arcname+to_string(count)+".zip";
+//    fname1[fname.length()+1];
+//    strcpy(fname1, fname.c_str());
+//    deleteFile(fname1);
+//    count++;
+//    }
 }
