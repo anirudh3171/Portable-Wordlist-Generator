@@ -8,7 +8,7 @@ long int max_filesize=5000000;
 
 int deleteFile(char * fname)
 {
-	system("clear");
+	//system("clear");
 	int status;
 	status=remove(fname);
 	if(status==0)
@@ -26,6 +26,7 @@ int main()
 {
     int max_limit, min_limit;
     string list,l="", resume;
+    string arcname;
 
     FILE *op_file;
     bool will_out = false;
@@ -79,6 +80,8 @@ int main()
         int c=0;
         string file;
         int f=1;
+        cout<<"enter the name of zip file"<<endl;
+        cin>>arcname;
 
         while(f<=fno)
         {
@@ -105,10 +108,10 @@ int main()
                     break;
                 }
             }
-            file = "7z a archive" +to_string(cnt) +".zip " + val ;
+            file = "7za a " + arcname + to_string(cnt) +".zip " + val ;
             const char *command = file.c_str();
             system(command);
-            string finalcmd = "7z a archive.zip archive" + to_string(cnt) + ".zip";
+            string finalcmd = "7za a " + arcname +".zip " + arcname + to_string(cnt) + ".zip";
             const char *archivecmd = finalcmd.c_str();
             system(archivecmd);
             f++;
@@ -127,7 +130,7 @@ int main()
     char fname1[fname.length()+1];
     strcpy(fname1, fname.c_str());
     deleteFile(fname1);
-    fname="archive"+to_string(count)+".zip";
+    fname= arcname+to_string(count)+".zip";
     fname1[fname.length()+1];
     strcpy(fname1, fname.c_str());
     deleteFile(fname1);
