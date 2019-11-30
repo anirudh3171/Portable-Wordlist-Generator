@@ -8,7 +8,7 @@ long int max_filesize=5000000;
 
 int deleteFile(char * fname)
 {
-	//system("clear");
+	system("clear");
 	int status;
 	status=remove(fname);
 	if(status==0)
@@ -116,12 +116,13 @@ int main()
             system(archivecmd);
             f++;
             cnt++;
-        }
-        cout<<total;
-        if(will_out)
+            if(will_out)
         {
         fclose(op_file);
         }
+        }
+        cout<<total;
+
     }
     int count=1;
     while(count!=cnt)
